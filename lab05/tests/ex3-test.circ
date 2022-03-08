@@ -142,7 +142,7 @@
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="CYCLE"/>
-      <a name="locked" val="true"/>
+      <a name="locked" val="false"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
@@ -150,14 +150,14 @@
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="halt"/>
-      <a name="locked" val="true"/>
+      <a name="locked" val="false"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(490,310)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="ADD_OUT"/>
-      <a name="locked" val="true"/>
+      <a name="locked" val="false"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
@@ -165,7 +165,7 @@
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="REG_OUT"/>
-      <a name="locked" val="true"/>
+      <a name="locked" val="false"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
