@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project source="3.4.3-61c.cc0f4a6" version="1.0">
+<project source="3.4.3-61c.db850b2" version="1.0">
   This file is intended to be loaded by Logisim-evolution (https://github.com/reds-heig/logisim-evolution).
 
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="appear" val="center"/>
-      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
     </tool>
     <tool name="Pin">
       <a name="facing" val="north"/>
+      <a name="locked" val="true"/>
     </tool>
     <tool name="Probe">
       <a name="radix" val="16"/>
@@ -84,8 +86,7 @@
       <a name="valign" val="base"/>
     </tool>
   </lib>
-  <lib desc="file#../ex3.circ" name="6"/>
-  <main name="main"/>
+  <main name="non_pipelined"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
@@ -109,10 +110,12 @@
     <sep/>
     <tool lib="0" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="locked" val="true"/>
     </tool>
     <tool lib="0" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="locked" val="true"/>
       <a name="output" val="true"/>
     </tool>
     <sep/>
@@ -130,78 +133,60 @@
       <a name="appearance" val="logisim_evolution"/>
     </tool>
   </toolbar>
-  <circuit name="main">
+  <circuit name="non_pipelined">
     <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="main"/>
+    <a name="circuit" val="non_pipelined"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="circuitvhdlpath" val=""/>
     <a name="clabel" val=""/>
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
-    <comp lib="0" loc="(190,100)" name="Pin">
+    <comp lib="0" loc="(170,150)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="in2"/>
+      <a name="locked" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(170,210)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CLK"/>
+      <a name="locked" val="true"/>
+    </comp>
+    <comp lib="0" loc="(170,90)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="in1"/>
+      <a name="locked" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(560,130)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="CYCLE"/>
-      <a name="locked" val="false"/>
+      <a name="label" val="out1"/>
+      <a name="locked" val="true"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
-    <comp lib="0" loc="(190,50)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="halt"/>
-      <a name="locked" val="false"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(490,310)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="ADD_OUT"/>
-      <a name="locked" val="false"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(490,350)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="REG_OUT"/>
-      <a name="locked" val="false"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(60,110)" name="Constant">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(60,40)" name="Constant">
-      <a name="value" val="0xf"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(90,140)" name="Clock"/>
-    <comp lib="3" loc="(100,100)" name="Adder"/>
-    <comp lib="3" loc="(100,50)" name="Comparator"/>
-    <comp lib="4" loc="(110,70)" name="Register">
+    <comp lib="3" loc="(290,120)" name="Multiplier"/>
+    <comp lib="3" loc="(380,130)" name="Adder"/>
+    <comp lib="4" loc="(420,100)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
-    <comp lib="6" loc="(400,320)" name="AddMachine"/>
-    <wire from="(100,100)" to="(110,100)"/>
-    <wire from="(100,140)" to="(100,320)"/>
-    <wire from="(100,140)" to="(110,140)"/>
-    <wire from="(100,320)" to="(180,320)"/>
-    <wire from="(100,50)" to="(190,50)"/>
-    <wire from="(170,100)" to="(180,100)"/>
-    <wire from="(180,100)" to="(180,170)"/>
-    <wire from="(180,100)" to="(190,100)"/>
-    <wire from="(30,170)" to="(180,170)"/>
-    <wire from="(30,60)" to="(30,90)"/>
-    <wire from="(30,60)" to="(60,60)"/>
-    <wire from="(30,90)" to="(30,170)"/>
-    <wire from="(30,90)" to="(60,90)"/>
-    <wire from="(400,320)" to="(480,320)"/>
-    <wire from="(400,340)" to="(480,340)"/>
-    <wire from="(480,310)" to="(480,320)"/>
-    <wire from="(480,310)" to="(490,310)"/>
-    <wire from="(480,340)" to="(480,350)"/>
-    <wire from="(480,350)" to="(490,350)"/>
-    <wire from="(90,140)" to="(100,140)"/>
+    <wire from="(170,150)" to="(190,150)"/>
+    <wire from="(170,210)" to="(410,210)"/>
+    <wire from="(170,90)" to="(190,90)"/>
+    <wire from="(190,110)" to="(250,110)"/>
+    <wire from="(190,130)" to="(190,150)"/>
+    <wire from="(190,130)" to="(250,130)"/>
+    <wire from="(190,90)" to="(190,110)"/>
+    <wire from="(290,120)" to="(340,120)"/>
+    <wire from="(330,140)" to="(330,230)"/>
+    <wire from="(330,140)" to="(340,140)"/>
+    <wire from="(330,230)" to="(520,230)"/>
+    <wire from="(380,130)" to="(420,130)"/>
+    <wire from="(410,170)" to="(410,210)"/>
+    <wire from="(410,170)" to="(420,170)"/>
+    <wire from="(480,130)" to="(520,130)"/>
+    <wire from="(520,130)" to="(520,230)"/>
+    <wire from="(520,130)" to="(560,130)"/>
   </circuit>
 </project>

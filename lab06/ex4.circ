@@ -5,7 +5,8 @@
   <lib desc="#Wiring" name="0">
     <tool name="Splitter">
       <a name="appear" val="center"/>
-      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
     </tool>
     <tool name="Pin">
       <a name="facing" val="north"/>
@@ -84,8 +85,7 @@
       <a name="valign" val="base"/>
     </tool>
   </lib>
-  <lib desc="file#../ex3.circ" name="6"/>
-  <main name="main"/>
+  <main name="pipelined"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
@@ -109,10 +109,12 @@
     <sep/>
     <tool lib="0" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="locked" val="true"/>
     </tool>
     <tool lib="0" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="locked" val="true"/>
       <a name="output" val="true"/>
     </tool>
     <sep/>
@@ -130,78 +132,38 @@
       <a name="appearance" val="logisim_evolution"/>
     </tool>
   </toolbar>
-  <circuit name="main">
+  <circuit name="pipelined">
     <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="main"/>
+    <a name="circuit" val="pipelined"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="circuitvhdlpath" val=""/>
     <a name="clabel" val=""/>
     <a name="clabelfont" val="SansSerif bold 16"/>
     <a name="clabelup" val="east"/>
-    <comp lib="0" loc="(190,100)" name="Pin">
+    <comp lib="0" loc="(170,150)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="in2"/>
+      <a name="locked" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(170,210)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CLK"/>
+      <a name="locked" val="true"/>
+    </comp>
+    <comp lib="0" loc="(170,90)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="in1"/>
+      <a name="locked" val="true"/>
+      <a name="width" val="8"/>
+    </comp>
+    <comp lib="0" loc="(810,130)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
-      <a name="label" val="CYCLE"/>
-      <a name="locked" val="false"/>
+      <a name="label" val="out1"/>
+      <a name="locked" val="true"/>
       <a name="output" val="true"/>
       <a name="width" val="8"/>
     </comp>
-    <comp lib="0" loc="(190,50)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="halt"/>
-      <a name="locked" val="false"/>
-      <a name="output" val="true"/>
-    </comp>
-    <comp lib="0" loc="(490,310)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="ADD_OUT"/>
-      <a name="locked" val="false"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(490,350)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="REG_OUT"/>
-      <a name="locked" val="false"/>
-      <a name="output" val="true"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(60,110)" name="Constant">
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(60,40)" name="Constant">
-      <a name="value" val="0xf"/>
-      <a name="width" val="8"/>
-    </comp>
-    <comp lib="0" loc="(90,140)" name="Clock"/>
-    <comp lib="3" loc="(100,100)" name="Adder"/>
-    <comp lib="3" loc="(100,50)" name="Comparator"/>
-    <comp lib="4" loc="(110,70)" name="Register">
-      <a name="appearance" val="logisim_evolution"/>
-    </comp>
-    <comp lib="6" loc="(400,320)" name="AddMachine"/>
-    <wire from="(100,100)" to="(110,100)"/>
-    <wire from="(100,140)" to="(100,320)"/>
-    <wire from="(100,140)" to="(110,140)"/>
-    <wire from="(100,320)" to="(180,320)"/>
-    <wire from="(100,50)" to="(190,50)"/>
-    <wire from="(170,100)" to="(180,100)"/>
-    <wire from="(180,100)" to="(180,170)"/>
-    <wire from="(180,100)" to="(190,100)"/>
-    <wire from="(30,170)" to="(180,170)"/>
-    <wire from="(30,60)" to="(30,90)"/>
-    <wire from="(30,60)" to="(60,60)"/>
-    <wire from="(30,90)" to="(30,170)"/>
-    <wire from="(30,90)" to="(60,90)"/>
-    <wire from="(400,320)" to="(480,320)"/>
-    <wire from="(400,340)" to="(480,340)"/>
-    <wire from="(480,310)" to="(480,320)"/>
-    <wire from="(480,310)" to="(490,310)"/>
-    <wire from="(480,340)" to="(480,350)"/>
-    <wire from="(480,350)" to="(490,350)"/>
-    <wire from="(90,140)" to="(100,140)"/>
   </circuit>
 </project>
